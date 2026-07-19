@@ -1,0 +1,5 @@
+lang,gpt2_tok_per_word,xlm_tok_per_word,gpt2_tok_per_char,xlm_tok_per_char,xlm_ratio_vs_eng
+eng,1.27,1.41,0.213,0.236,1.00
+hin,7.80,1.49,1.529,0.292,1.06
+kan,22.67,2.57,2.655,0.301,1.82
+tam,24.62,2.42,2.718,0.268,1.72

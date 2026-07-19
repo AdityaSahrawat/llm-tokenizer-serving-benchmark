@@ -1,0 +1,9 @@
+tokenizer,lang,fertility_tok_per_word,tok_per_char
+gpt2,eng,1.27,0.213
+gpt2,hin,7.80,1.529
+gpt2,kan,22.67,2.655
+gpt2,tam,24.62,2.718
+hf:xlm-roberta-base,eng,1.41,0.236
+hf:xlm-roberta-base,hin,1.49,0.292
+hf:xlm-roberta-base,kan,2.57,0.301
+hf:xlm-roberta-base,tam,2.42,0.268

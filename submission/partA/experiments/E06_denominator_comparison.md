@@ -43,22 +43,17 @@ uv run python submission/partA/scripts/compare_metrics.py \
 
 ```
 tokenizer: hf:xlm-roberta-base
-lang      fertility (tok/word)    tok/char    tok/byte    tok/sent
-------------------------------------------------------------------
-eng                       1.42       0.236       0.235       29.58
-hin                       1.50       0.292       0.114       36.75
-kan                       2.47       0.301       0.111       39.74
-tam                       2.42       0.268       0.098       39.23
+lowercase: true
+lang          tok/word    tok/char    tok/byte    tok/sent
+----------------------------------------------------------
+eng              1.408       0.236       0.235       29.58
+hin              1.489       0.292       0.114       36.75
+kan              2.568       0.301       0.111       39.74
+tam              2.424       0.268       0.098       39.23
 
-hin is 1.06x the fertility (tok/word) of eng (worse tokenization)
-hin is 0.48x the tok/byte of eng (better tokenization per UTF-8 byte)
-hin is 1.24x the tok/sent of eng (worse tokenization per parallel sentence)
-kan is 1.75x the fertility (tok/word) of eng (worse tokenization)
-kan is 0.47x the tok/byte of eng (better tokenization per UTF-8 byte)
-kan is 1.34x the tok/sent of eng (worse tokenization per parallel sentence)
-tam is 1.71x the fertility (tok/word) of eng (worse tokenization)
-tam is 0.42x the tok/byte of eng (better tokenization per UTF-8 byte)
-tam is 1.33x the tok/sent of eng (worse tokenization per parallel sentence)
+hin vs eng: tok/word=1.06x (worse)  tok/byte=0.48x (better)  tok/sent=1.24x (worse)
+kan vs eng: tok/word=1.82x (worse)  tok/byte=0.47x (better)  tok/sent=1.34x (worse)
+tam vs eng: tok/word=1.72x (worse)  tok/byte=0.42x (better)  tok/sent=1.33x (worse)
 ```
 
 ---

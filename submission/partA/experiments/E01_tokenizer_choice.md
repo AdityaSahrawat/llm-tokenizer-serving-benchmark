@@ -45,41 +45,43 @@ uv run python submission/partA/scripts/fertility.py \
 ## Output
 
 ```
-tokenizer: gpt2
+tokenizer:  gpt2
+lowercase:  true
 lang      fertility (tok/word)    tok/char
 ------------------------------------------
-eng                       1.41       0.236
-hin                       7.55       1.599
-kan                       9.88       1.195
-tam                       9.64       1.087
+eng                       1.27       0.213
+hin                       7.80       1.529
+kan                      22.67       2.655
+tam                      24.62       2.718
 
-hin is 5.35x the fertility of eng (worse tokenization)
-kan is 7.00x the fertility of eng (worse tokenization)
-tam is 6.83x the fertility of eng (worse tokenization)
+hin is 6.12x the fertility of eng (worse tokenization)
+kan is 17.79x the fertility of eng (worse tokenization)
+tam is 19.32x the fertility of eng (worse tokenization)
 ```
 
 ```
-tokenizer: hf:xlm-roberta-base
+tokenizer:  hf:xlm-roberta-base
+lowercase:  true
 lang      fertility (tok/word)    tok/char
 ------------------------------------------
 eng                       1.41       0.236
 hin                       1.49       0.292
-kan                       2.46       0.301
-tam                       2.41       0.268
+kan                       2.57       0.301
+tam                       2.42       0.268
 
 hin is 1.06x the fertility of eng (worse tokenization)
-kan is 1.75x the fertility of eng (worse tokenization)
-tam is 1.71x the fertility of eng (worse tokenization)
+kan is 1.82x the fertility of eng (worse tokenization)
+tam is 1.72x the fertility of eng (worse tokenization)
 ```
 
 ---
 
 ## Observation
 
-- Under GPT-2, Hindi fertility is 5.35× English. Under XLM-RoBERTa, Hindi fertility is 1.06× English.
-- The intern's report cited 5.89× for Hindi. This experiment reproduces a similar magnitude (5.35×) under GPT-2, confirming the number is tokenizer-specific, not a property of the language.
-- The gap shrinks by a factor of approximately 5 when switching to a multilingual tokenizer.
-- Language ranking is preserved (Indic > English) under both tokenizers, but the Dravidian languages (Kannada, Tamil) exceed Hindi under XLM-RoBERTa — a reversal not visible under GPT-2's extreme compression failure.
+- Under GPT-2, Hindi fertility is 6.12× English (and Dravidian languages are ~18–19× English). Under XLM-RoBERTa, Hindi fertility is 1.06× English.
+- The intern's report cited 5.89× for Hindi. This experiment reproduces a similar magnitude (6.12×) under GPT-2 on the parallel corpus, confirming the number is tokenizer-specific, not a property of the language.
+- The gap shrinks by a factor of nearly 6 when switching to a multilingual tokenizer.
+- Language ranking is preserved (Indic > English) under both tokenizers, but the Dravidian languages (Kannada, Tamil) exceed Hindi under XLM-RoBERTa — a reversal not visible under GPT-2's extreme byte-level compression failure.
 
 ---
 
