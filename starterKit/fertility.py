@@ -52,24 +52,19 @@ def read_lines(path: str):
 
 
 def analyze(lines, encode):
-    """Return (fertility, tokens_per_char) as total tokens divided by total words/chars."""
-    total_tokens = 0
-    total_words = 0
-    total_chars = 0
+    """Return (fertility, tokens_per_char) averaged over lines."""
+    per_line_fertility = []
+    per_line_tpc = []
     for line in lines:
         # lowercase so casing doesn't add noise to the comparison
         line = line.lower()
         tokens = encode(line)
         words = line.split(" ")
         chars = len(line)
-        total_tokens += len(tokens)
-        total_words += len(words)
-        total_chars += chars
-    
-    fertility = total_tokens / total_words if total_words > 0 else 0.0
-    tpc = total_tokens / total_chars if total_chars > 0 else 0.0
-    return fertility, tpc
-
+        per_line_fertility.append(len(tokens) / len(words))
+        per_line_tpc.append(len(tokens) / chars)
+    n = len(per_line_fertility)
+    return sum(per_line_fertility) / n, sum(per_line_tpc) / n
 
 
 def main():
